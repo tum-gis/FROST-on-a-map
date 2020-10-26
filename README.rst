@@ -18,7 +18,7 @@ Adapt lines 15-18 of ``js/trajectory.js``:
 
 .. code-block:: javascript
 
-  // FROST server and, Thing, number of HistoricalLocations, time filter (optional)
+  // FROST server, Thing, number of HistoricalLocations, time filter (optional)
   var frostBaseURL = 'https://iot.hef.tum.de/frost';
   var thingIotID = 16;
   var nHistoricalLocations = 10;
