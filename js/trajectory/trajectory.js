@@ -61,13 +61,14 @@ fetch(url)
 
     // buld polyline from latlon reverse and add arrows
     var polyline = L.polyline(latlonreverse, {
-        color: '#0683c2',
+        color: '#3498DB',
         lineCap: 'round',
         lineJoin: 'round',
-        opacity: 0.9,
-        weight: 3
+        opacity: 0.8,
+        weight: 4,
+        smoothFactor: 20
       })
-      .arrowheads({ yawn: 50, fill: false, size: '8%', frequency: 'allvertices', proportionalToTotal: false })
+      .arrowheads({ yawn: 50, fill: false, size: '10%', frequency: 'allvertices', proportionalToTotal: true, color: "#2E86C1", opacity: 1 })
       .addTo(map);
 
     // Fit map to polyline bounds

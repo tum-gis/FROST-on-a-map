@@ -1,4 +1,22 @@
+body {
+  background-color: #f2f2f2;
+}
+
 #mapid {
-  height: 600px;
-  margin-top: 10px;
+  position: relative;
+  height: 85%;
+  width: 98%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header {
+  height: 10%;
+  font-family: 'Helvetica';
+}
+
+#query {
+  font-size: smaller;
+  font-family: 'Lucida Console';
+  overflow: hidden;
 }
