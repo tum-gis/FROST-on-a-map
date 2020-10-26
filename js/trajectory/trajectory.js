@@ -8,14 +8,8 @@ var tileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}
 }).addTo(map);
 
 // Configure FROST instance and setup query
-
-// https://iot.hef.tum.de/frost/Things(16)
-// https://iot.hef.tum.de/frost/Things(16)/Locations?$resultFormat=GeoJSON
-// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations
-// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time gt 2019-12-31T23:00:00.000Z and time lt 2020-12-31T22:59:59.999Z&$expand=Locations($select=name,location)&$top=1&$select=time
-// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time gt 2019-12-31T23:00:00.000Z and time lt 2020-12-31T22:59:59.999Z&$expand=Locations($select=name,location)&$top=5&$select=time&$resultFormat=GeoJSON
-// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time gt 2020-10-20T00:00:00.000Z and time lt 2020-10-22T23:59:59.999Z&$expand=Locations($select=name,location)&$top=5&$select=time&$resultFormat=GeoJSON
-// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time%20gt%202020-10-20T00:00:00.000Z%20and%20time%20lt%202020-10-22T23:59:59.999Z&$expand=Locations($select=name,location)&$top=5&$select=time&$resultFormat=GeoJSON
+// Example query:
+// https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time%20gt%202020-10-20T00:00:00.000Z%20and%20time%20lt%202020-10-22T23:59:59.999Z&$expand=Locations($select=location)&$top=10&$select=time&$resultFormat=GeoJSON&$orderby=time desc
 
 // FROST server and, Thing, number of HistoricalLocations, time filter (optional)
 var frostBaseURL = 'https://iot.hef.tum.de/frost';
