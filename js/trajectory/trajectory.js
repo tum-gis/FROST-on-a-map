@@ -68,7 +68,14 @@ fetch(url)
         weight: 4,
         smoothFactor: 20
       })
-      .arrowheads({ yawn: 50, fill: false, size: '10%', frequency: 'allvertices', proportionalToTotal: true, color: "#2E86C1", opacity: 1 })
+      .arrowheads({
+        yawn: 50,
+        fill: false,
+        size: '15px',
+        frequency: 'allvertices',
+        color: "#2E86C1",
+        opacity: 1
+      })
       .addTo(map);
 
     // Fit map to polyline bounds
