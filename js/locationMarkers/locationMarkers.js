@@ -1,6 +1,4 @@
-// Leaflet basic map
-var mapboxToken = 'pk.eyJ1IjoiYndpYm8iLCJhIjoiY2tnYW54c2hhMDh6bjJ0czUzb2l6NGpuYyJ9.pYsb6mDBhPu59El1mtwK7A';
-
+// Leaflet map
 var map = L.map('mapid').setView([48.15, 11.58], 13);
 
 // OSM background map
