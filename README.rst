@@ -36,7 +36,7 @@ Query the last n ``HistroicalLocations`` from a given ``Thing`` in a time period
 and plot a trajectory with `ArrowHeads <https://github.com/slutske22/leaflet-arrowheads>`_
 from it.
 
-Adapt lines 15-18 of ``js/trajectory.js``:
+Adapt lines 15-18 of ``js/trajectory/trajectory.js``:
 
 .. code-block:: javascript
 
