@@ -54,6 +54,9 @@ fetch(url)
     }
 
     data.features.forEach(function(feature) {
+      // Skip features with no geometry
+      if (!feature.geometry) return;
+
       latlngs.push(switchLatLon(feature.geometry.coordinates));
     });
 
