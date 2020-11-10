@@ -12,7 +12,7 @@ var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
   tileSize: 512
 }).addTo(map);
 
-
+// Configure FROST instance
 var frostBaseURL = 'http://iot.gis.bgu.tum.de:8080/FROST-Server/v1.1';
 var frostQuery = '/Things?$expand=Locations&$resultFormat=GeoJSON';
 
