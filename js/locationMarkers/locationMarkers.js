@@ -13,7 +13,7 @@ var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 }).addTo(map);
 
 
-var frostBaseURL = 'https://iot.hef.tum.de/frost';
+var frostBaseURL = 'http://iot.gis.bgu.tum.de:8080/FROST-Server/v1.1';
 var frostQuery = '/Things?$expand=Locations&$resultFormat=GeoJSON';
 
 // append expand and select
@@ -37,6 +37,9 @@ fetch(url)
 
     data.features.forEach(function(feature) {
 
+      // Skip features with no geometry
+      if (!feature.geometry) return;
+
       // Coords and marker
       var coords = switchLatLon(feature.geometry.coordinates);
       var marker = L.marker(coords);
@@ -56,7 +59,22 @@ fetch(url)
     });
 
     // Group markers and fit map to bounds
-    var featureGroup = L.featureGroup(markers).addTo(map);
+    // var featureGroup = L.featureGroup(markers).addTo(map);
+
+    var featureGroup = L.featureGroup(markers);
+
+    var markerClusterGroup = L.markerClusterGroup({
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: true,
+      zoomToBoundsOnClick: true,
+      removeOutsideVisibleBounds: true
+    });
+
+    markers.forEach(
+      marker => markerClusterGroup.addLayer(marker)
+    );
+
+    map.addLayer(markerClusterGroup);
     map.fitBounds(featureGroup.getBounds());
   })
   .catch(function(err) {
