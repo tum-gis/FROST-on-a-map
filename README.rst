@@ -15,7 +15,7 @@ Plot the last ``Locations`` of all ``Things`` on a map and add a popup to the ma
 informations on the ``Thing``. To cluster markers at the same location
 `Leaflet MarkerCluster <https://github.com/Leaflet/Leaflet.markercluster>`_ is used.
 
-Adapt line 16 of ``js/locationMarkers/lovationMarkers.js`` to change the FROST instance.
+Adapt line 16 of ``js/locationMarkers/locationMarkers.js`` to change the FROST instance.
 
 .. code-block:: javascript
 
