@@ -1,18 +1,19 @@
-========================
-FROST locations on a map
-========================
+======================================
+SensorThingsAPI ``Locations`` on a map
+======================================
 
-This repo contains some basic example on how to query ``Locations`` and ``HistoricalLocations``
-from a `FROST-Server <https://github.com/FraunhoferIOSB/FROST-Server>`_ instance and place them
+This repo contains some basic examples on how to query ``Locations`` and ``HistoricalLocations``
+from an `OGC SensorThingsAPI <https://www.ogc.org/standards/sensorthings>`_ conform service,
+as for instance `FROST-Server <https://github.com/FraunhoferIOSB/FROST-Server>`_ instance and place them
 on a web map using Open Source mapping APIs like `Leaflet.js <https://leafletjs.com/>`_.
 
 ****************
 Location markers
 ****************
 
-Plot the last ``Locations`` of all ``Things`` on a map and add a popup to the marker with basic
+Plot the last ``Locations`` of all ``Things`` on a map and add a popup to the markers with basic
 informations on the ``Thing``. To cluster markers at the same location
-`Leaflet MarkerClsuter <https://github.com/Leaflet/Leaflet.markercluster>`_ is used.
+`Leaflet MarkerCluster <https://github.com/Leaflet/Leaflet.markercluster>`_ is used.
 
 Adapt line 16 of ``js/locationMarkers/lovationMarkers.js`` to change the FROST instance.
 
@@ -20,6 +21,8 @@ Adapt line 16 of ``js/locationMarkers/lovationMarkers.js`` to change the FROST i
 
   // Configure FROST instance
   var frostBaseURL = 'https://my.frost.server.de/FROST-Server/v1.1';
+
+Open ``locationMarkers.html`` in a browser to view the results.
 
 .. image:: docs/img/locationMarkers.jpg
    :width: 600
