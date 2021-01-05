@@ -12,7 +12,7 @@ var tileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}
 // https://iot.hef.tum.de/frost/Things(16)/HistoricalLocations?$filter=time%20gt%202020-10-20T00:00:00.000Z%20and%20time%20lt%202020-10-22T23:59:59.999Z&$expand=Locations($select=location)&$top=10&$select=time&$resultFormat=GeoJSON&$orderby=time desc
 
 // FROST server, Thing, number of HistoricalLocations, time filter (optional)
-var frostBaseURL = 'https://iot.hef.tum.de/frost';
+var frostBaseURL = 'https://iot.hef.tum.de/frost/v1.1';
 var thingIotID = 16;
 var nHistoricalLocations = 10;
 var timeIntervalFilter = '$filter=time%20gt%202020-10-20T00:00:00.000Z%20and%20time%20lt%202020-10-22T23:59:59.999Z';
