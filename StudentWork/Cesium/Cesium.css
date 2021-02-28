@@ -1,0 +1,48 @@
+#header {
+    font-family: Helvetica;
+    background: #F2F2F2;
+}
+
+#cesiumContainer {
+    width: 60%;
+    height: 95%;
+
+    float: left;
+    z-index: 0;
+}
+
+#form {
+    font-family: Helvetica;
+    margin: 3px 0 10px;
+    float: right;
+    height: 20%;
+    width: 39.5%;
+    background: #F2F2F2;
+    overflow: auto;
+}
+
+#container1 {
+    width: 40%;
+    height: 39%;
+    float: right;
+    margin: 0 0 2px;
+    background: #F2F2F2;
+}
+
+#container2 {
+    width: 40%;
+    height: 39%;
+    float: right;
+    margin: 0 0 2px;
+    background: #F2F2F2;
+}
+
+#legend {
+
+    position: absolute;
+    top: 80%;
+    left: 48%;
+    z-index: 1;
+    height: 100px;
+
+}
