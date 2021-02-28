@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css"
+    type="text/css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://unpkg.com/elm-pep"></script>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+  <title>TUM-GIS - FROST Locations on a Map</title>
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="../Data/favicon_tum_neg.svg" />
+  <!-- Style -->
+  <link rel="stylesheet" href="Openlayers.css">
+
+  <style>
+  .ol-popup-closer:after {
+    content: "✖";
+  }
+  </style>
+</head>
+
+<body>
+  <div id="header" style="height: 50px;">
+    <h1 style="margin-bottom:0;">Sensor Visualization</h1>
+  </div>
+  <div id="map" class="map"></div>
+  <div id="scale-line"></div>
+  <div id="legend">
+    <img height="80px">
+  </div>
+  <script src="Openlayers.js"></script>
+
+  <form action="Openlayers.html" method="GET" id="form" onsubmit="ID.disabled=false">
+    <fieldset>
+      <legend>Set up</legend>
+      <p>
+        <label for="ID">IoT ID:</label>
+        <select id="ID" name="ID" onclick="disableButtonID(value)"> <!-- if ID = "--" is selected, then you cant proceed -->
+          <option value="noOption">--</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="19">19</option>
+        </select>
+        <label>Frost URL: <input type="url" id="FrostInput" name="URL" size="40" value="https://gi3.gis.lrg.tum.de/frostAdvGIS/v1.1" required></label> <!-- if clicked on ">>" the textline will be readonly, so the user can't change the input as long as one doesn't press "Reset" -->
+        <button type="button" id="buttonIDs" onclick="displayNext(id)" disabled>>></button> <!-- if clicked, disable the first line until one press "Reset" -->
+      </p>
+      <p>
+        <set id="timeSet" style="display: none;">
+          <label for="timeStart">Time start: </label>
+          <select id="timeStart" name="timeStart">
+            <option id="optionID16Start" value="2020-12-07T15:03:00Z" disabled>07.12.2020 15:03 Uhr</option> <!-- all options are disabled; depending on the IoT ID, the right option(s) will be enabled -->
+            <option id="optionID17Start" value="2020-12-08T08:52:00Z" disabled>08.12.2020 08:52 Uhr</option>
+            <option id="optionID15Start" value="2020-12-22T12:18:00Z" disabled>22.12.2020 12:18 Uhr</option>
+            <option id="optionID19Start_1" value="2021-02-04T16:13:05Z" disabled>04.02.2021 16:13 Uhr</option>
+            <option id="optionID19Start_2" value="2021-02-05T13:35:21Z" disabled>05.02.2021 13:35 Uhr</option>
+          </select>
+          <label for="timeEnd">Time end: </label>
+          <select id="timeEnd" name="timeEnd">
+            <option id="optionID16End" value="2020-12-07T15:16:00Z" disabled>07.12.2020 15:16 Uhr</option> <!-- all options are disabled; depending on the IoT ID, the right option(s) will be enabled -->
+            <option id="optionID17End" value="2020-12-08T09:30:00Z" disabled>08.12.2020 09:30 Uhr</option>
+            <option id="optionID15End" value="2020-12-22T12:36:00Z" disabled>22.12.2020 12:36 Uhr</option>
+            <option id="optionID19End_1" value="2021-02-04T17:17:46Z" disabled>04.02.2021 17:18 Uhr</option>
+            <option id="optionID19End_2" value="2021-02-05T14:27:04Z" disabled>05.02.2021 14:28 Uhr</option>
+          </select>
+          <button type="button" id="buttonForDrop19" onclick="displayNext(id)" style="display: none;">>></button>
+        </set>
+      </p>
+      <p>
+        <set id="drop19Set" style="display: none;">
+          <label for="drop19Show">Show: </label>
+          <select id="drop19Show" name="ID19measurement">
+            <option value="ID19Temp">Temperature & Humidity</option>
+            <option value="ID19Light">Visible Light & Infrared</option>
+            <option value="ID19PM">Particulate Matter</option>
+          </select>
+        </set>
+      </p>
+      <p>
+        <input id="submitButton" type="submit" name="submit" value="Get Data" disabled>
+        <input type="reset" name="reset" value="Reset" onclick="javascript:location.href='Openlayers.html'"> <!-- if the reset button is pressed, the site refreshes -->
+        <!-- <input type="reset" name="reset" value="Reset" onclick="resetForm()"> --> <!-- alternative: reset only the form; maybe problems with the url due to GET-form-->
+      </p>
+    </fieldset>
+  </form>
+
+  <div id="container1"></div>
+  <div id="container2"></div>
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+</body>
+
+</html>

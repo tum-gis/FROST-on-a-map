@@ -1,0 +1,49 @@
+body {
+    background: #F2F2F2;
+  }
+  
+#mapid {
+    width: 60%;
+    height: 900px;
+    float: left;
+    z-index: 0;
+}
+
+#header {
+    font-family: Helvetica;
+}
+
+
+#form {
+    font-family: Helvetica;
+    margin: 3px 0 10px;
+    float: right;
+    height: 20%;
+    width: 39.5%;
+    overflow: auto;
+}
+
+#container1 {
+    width: 40%;
+    height: 350px;
+    float: right;
+    margin: 0 0 5px;
+    background: #F2F2F2;
+}
+
+#container2 {
+    width: 40%;
+    height: 350px;
+    float: right;
+    margin: 0 0 5px;
+    background: #F2F2F2;
+}
+
+
+#legend { 
+    position: absolute;
+    top: 820px;
+    left: 10px;
+    z-index: 1;
+    opacity: 0.9;
+}
